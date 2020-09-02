@@ -1,10 +1,17 @@
 <template>
   <div class="home-view-container">
     <h1>Adopt a new best friend.</h1>
-    {{ getAllCats.length }}
-    {{ animalsCount }}
+    <b-row>
+      <b-col>
+        <b-list-group class="my-2 w-50 mx-auto">
+          <b-list-group-item>Cats: {{ getAllCats.length }}</b-list-group-item>
+          <b-list-group-item>Dogs: {{ getAllDogs.length }}</b-list-group-item>
+          <b-list-group-item>Total: {{ animalsCount }}</b-list-group-item>
+        </b-list-group>
+      </b-col>
+    </b-row>
 
-    <b-button variant="primary" @click="togglePetForm">Add New Pet</b-button>
+    <b-button variant="primary" class="mb-2" @click="togglePetForm">Add New Pet</b-button>
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
 
       <b-form-group id="input-group-2" label="Pet's Name:" label-for="input-2">
@@ -59,7 +66,8 @@ export default {
   computed: {
     ...mapGetters([
       'animalsCount',
-      'getAllCats'
+      'getAllCats',
+      'getAllDogs'
     ])
   },
   methods: {
